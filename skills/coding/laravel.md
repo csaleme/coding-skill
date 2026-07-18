@@ -68,6 +68,16 @@ $labels = collect($lines)
 'status' => ['required', Rule::in(Order::STATUSES)],
 ```
 
+When the framework already hands you a resolved value, don't reach back to the raw and re-derive it: an Eloquent cast, a Nova field's resolved attribute, a FormRequest's validated data.
+
+```php
+// DON'T: reach back to the resource and re-cast in a closure
+Text::make('Status', fn () => $this->resource->status->value),
+
+// DO: the field resolves the cast enum; displayUsing gets it
+Text::make('Status')->displayUsing(fn (?Status $status) => $status?->value),
+```
+
 Idiomatic conversion preserves semantics. The boundaries:
 
 - A loop that exits early stays `foreach` unless a collection method expresses the exit directly (`first()`, `contains()`, `takeUntil()`).

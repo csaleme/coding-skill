@@ -94,6 +94,9 @@ Comment density: sparse and deliberate. Docblocks on classes and functions, sing
 $recent = $users->where('is_active', true)->sortByDesc('created_at')->take(5);
 ```
 
+- **Don't restate documented conventions**: if a rule already lives at the project or directory level (a `CLAUDE.md`, a framework convention every reader of this code knows), a comment re-explaining it is noise that drifts. Cut it, keep only what is specific to _this_ code. In a SingleStore migration, `// no foreign keys` restates the repo-wide rule (cut), but `// a unique key must contain the shard key, so id drops its primary key` explains this table's own choice (keep).
+- **Put the why on the line it governs**: attach a why-comment to the specific declaration or statement it explains, not in a header block above the whole unit. When a header paragraph explains one column's key choice or one line's guard, move that sentence down onto that column or line. Reserve the header block for what is genuinely about the whole function or class.
+
 - **Technical accuracy** over metaphors or analogies
 - **Concise descriptions**: explain what, not how (the code shows how)
 - **No fluff**: avoid words like "simple", "just", "basically"
