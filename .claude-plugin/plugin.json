@@ -1,6 +1,6 @@
 {
   "name": "coding",
-  "description": "Franco's code style preferences: expressive naming, fluent interfaces, early returns, Laravel-style comments, Stripe-style docs.",
+  "description": "Franco's code style preferences for writing, reviewing, and documenting code.",
   "author": {
     "name": "Franco Gilio"
   },

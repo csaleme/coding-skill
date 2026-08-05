@@ -1,9 +1,7 @@
 ---
 name: coding
 description: >
-  Franco's code style preferences: expressive naming, fluent interfaces,
-  early returns, Laravel-idiomatic PHP, Laravel-style comments,
-  Stripe-style docs.
+  Franco's code style preferences.
   Use when: writing code, reviewing code, refactoring, converting raw
   PHP to framework idioms, adding comments, writing docs, naming
   functions/variables, creating error messages.
