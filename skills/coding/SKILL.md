@@ -84,7 +84,7 @@ Write comments like Taylor Otwell. Technical, concise, and clean:
  */
 ```
 
-Comment density: sparse and deliberate. Docblocks on classes and functions, single-line notes on properties or a genuinely non-obvious line. This governs over any "comment every line" default. A why-comment earns its place by naming a constraint the code can't show, not by narrating what the next line plainly does.
+Comment density: a why-comment is a rare event. The default for any line, property, or well-named function is no comment at all. A docblock earns its place by carrying something the name and signature cannot; most functions need none, and "docblocks on classes and functions" is never a mandate to write one. A why-comment names a constraint the code can't show, not what the next line plainly does. Budget check on a finished diff: if it reads as commentary with code interleaved, cut until only the constraints the code cannot show remain. One or two short lines is the ceiling for any single why; a paragraph-sized rationale belongs in the PR description.
 
 ```php
 // DON'T: narrates what the next line plainly does
@@ -94,6 +94,8 @@ $recent = $users->where('is_active', true)->sortByDesc('created_at')->take(5);
 
 - **Don't restate documented conventions**: if a rule already lives at the project or directory level (a `CLAUDE.md`, a framework convention every reader of this code knows), a comment re-explaining it is noise that drifts. Cut it, keep only what is specific to _this_ code. In a SingleStore migration, `// no foreign keys` restates the repo-wide rule (cut), but `// a unique key must contain the shard key, so id drops its primary key` explains this table's own choice (keep).
 - **Put the why on the line it governs**: attach a why-comment to the specific declaration or statement it explains, not in a header block above the whole unit. When a header paragraph explains one column's key choice or one line's guard, move that sentence down onto that column or line. Reserve the header block for what is genuinely about the whole function or class.
+- **Say a why once**: one constraint gets one comment, at the single place it binds. Never repeat the same rationale across a docblock, a call site, a test, and a doc. Everywhere else the code points at the place that carries it.
+- **Test names carry the scenario**: a comment that restates the test name, or narrates the assertions under it, is noise. When a fixture's shape is the only non-obvious part, one short line on the fixture is the ceiling.
 
 - **Technical accuracy** over metaphors or analogies
 - **Concise descriptions**: explain what, not how (the code shows how)
@@ -124,6 +126,10 @@ Write docs that are conversational yet precise:
 - **Practical examples** over abstract descriptions
 
 Also apply the Shared Prose Rules (comments and docs) below.
+
+# PR Descriptions
+
+A reviewer should absorb the body in under a minute. Follow the repo's PR template when one exists. Describe the change in its final shape: never narrate the review process, superseded revisions of the same PR, or designs that did not ship, and never argue with objections nobody raised. Do not read test names back in prose, the test file already carries them. A rejected alternative earns at most one sentence, and only when the next maintainer would otherwise retry it.
 
 # Shared Prose Rules (comments and docs)
 
