@@ -1,10 +1,11 @@
 ---
 name: coding
 description: >
-  Franco's code style preferences.
+  Franco's code style and change-landing preferences.
   Use when: writing code, reviewing code, refactoring, converting raw
   PHP to framework idioms, adding comments, writing docs, naming
-  functions/variables, creating error messages.
+  functions/variables, creating error messages, rebasing or updating
+  branches, structuring PRs.
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -126,6 +127,12 @@ Write docs that are conversational yet precise:
 - **Practical examples** over abstract descriptions
 
 Also apply the Shared Prose Rules (comments and docs) below.
+
+## Landing Changes
+
+- **Make the change easy, then make the easy change**: when a change is hard, refactor first so it becomes trivial (as its own commit or PR), then land it
+- **Rebase, don't merge**: update a branch by rebasing onto main, not by merging main into it
+- **Stack dependent PRs**: multi-part dependent work ships as stacked GitHub PRs, each branch based on the previous. Independent changes get independent PRs, never stacked
 
 ## PR Descriptions
 
