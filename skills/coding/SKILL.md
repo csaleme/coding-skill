@@ -133,6 +133,7 @@ Also apply the Shared Prose Rules (comments and docs) below.
 - **Make the change easy, then make the easy change**: when a change is hard, refactor first so it becomes trivial (as its own commit or PR), then land it
 - **Rebase, don't merge**: update a branch by rebasing onto main, not by merging main into it
 - **Stack dependent PRs**: multi-part dependent work ships as stacked GitHub PRs, each branch based on the previous. Independent changes get independent PRs, never stacked
+- **Side work gets its own worktree**: anything beyond the task at hand runs in a git worktree with its own branch and PR, never in Franco's active checkout
 
 ## PR Descriptions
 
