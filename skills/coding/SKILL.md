@@ -41,7 +41,7 @@ order.hasStatus('pending');
 
 ## Laravel Codebases
 
-Working in PHP/Laravel? Read [laravel.md](laravel.md) before writing code. It covers fluent chains, `fluent()` for typed array access, framework APIs over raw PHP (`throw_if`, collections, `Str`, `Rule` objects), and the boundaries where raw PHP stays idiomatic.
+Working in PHP/Laravel? Read [laravel.md](laravel.md) before writing code.
 
 ## Guard Clauses: One Guard Per Exit Reason
 
@@ -115,7 +115,7 @@ Write helpful errors like Laravel. Name the field, the value, and the expectatio
 - DO "Unable to find user with ID: 42"
 - DON'T "User not found"
 
-# Documentation: Stripe-Style Clarity
+## Documentation: Stripe-Style Clarity
 
 Write docs that are conversational yet precise:
 
@@ -127,11 +127,11 @@ Write docs that are conversational yet precise:
 
 Also apply the Shared Prose Rules (comments and docs) below.
 
-# PR Descriptions
+## PR Descriptions
 
 A reviewer should absorb the body in under a minute. Follow the repo's PR template when one exists. Describe the change in its final shape: never narrate the review process, superseded revisions of the same PR, or designs that did not ship, and never argue with objections nobody raised. Do not read test names back in prose, the test file already carries them. A rejected alternative earns at most one sentence, and only when the next maintainer would otherwise retry it.
 
-# Shared Prose Rules (comments and docs)
+## Shared Prose Rules (comments and docs)
 
 These apply to both code comments and documentation.
 
